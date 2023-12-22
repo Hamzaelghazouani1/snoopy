@@ -1,23 +1,39 @@
 #ifndef PROTOLIB_H
 #define PROTOLIB_H
 
-typedef struct game{
-    
-};
-
 typedef struct grid{
+    char** item;
+    int row;
+    int col;
+    Game game;
+};
+
+typedef struct Position{
+    int x;
+    int y;
+};
+
+typedef struct Player{
     
 };
 
-typedef struct position{
+typedef struct Snoopy {
     
 };
 
-typedef struct player{
+typedef struct Block{
     
 };
 
-typedef struct {
+typedef struct Ball{
+    
+};
+
+typedef struct Birds{
+    
+};
+
+typedef struct Game{
     
 };
 
