@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "./header/protolib.h"
 
-int main(void){
+int run(void){
 	int choice = 0;
     system("clear");
 	do{
@@ -32,6 +32,6 @@ int main(void){
 			break;
 		}
 	}while (choice);
-	
+	system("clear");
 	return 0;
 }

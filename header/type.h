@@ -1,41 +1,68 @@
-#ifndef PROTOLIB_H
-#define PROTOLIB_H
+#ifndef TYPE_H
+#define TYPE_H
 
-typedef struct grid{
-    char** item;
-    int row;
-    int col;
-    Game game;
-};
+#define ROW 10
+#define COL 20 
 
-typedef struct Position{
+typedef struct {
     int x;
     int y;
-};
+}Position;
 
-typedef struct Player{
-    
-};
 
-typedef struct Snoopy {
-    
-};
+typedef struct {
+    char* ship;
+    Position Position;
+}Object;
 
-typedef struct Block{
+typedef struct {
     
-};
+}Player;
 
-typedef struct Ball{
-    
-};
+typedef struct {
+    Object Object;
+}Snoopy;
 
-typedef struct Birds{
-    
-};
 
-typedef struct Game{
+typedef struct {
+    Object** Array;
+    int nbrBlock;
+}Blocks;
+
+typedef struct {
+    Object Object;
+}Ball;
+
+typedef struct {
+    Object Bird_1;
+    Object Bird_2;
+    Object Bird_3;
+    Object Bird_4;
+}Birds;
+
+typedef struct {
+    int level;
+    int time;
+    int life;
+}Param;
+
+typedef struct {
+    Snoopy Snoopy;
+    Ball Ball;
+    Blocks Blocks;
+}Items;
+
+typedef struct {
+    char** Array;
+    int row;
+    int col;
+    Param Param;
+    Items Items;
+}Grid;
+
+typedef struct {
     
-};
+}Game;
 
 
 #endif
