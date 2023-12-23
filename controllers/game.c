@@ -10,5 +10,7 @@ void startNewGame(void) {
     initBlocks(blocks);
     printGrid(grid);
     printBlocks(blocks);
+    Birds * birds = CreateBirds();
+    printBirds(birds);
     btnDetection(grid);
 }

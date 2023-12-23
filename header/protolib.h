@@ -7,12 +7,21 @@
     Grid createGrid();
     void initGrid(Grid);
     void printGrid(Grid);
-    void btnDetection(Grid);
-    Blocks * createBlocks(int nbrBlock);
-    void initBlocks(Blocks * blocks);
-    void distroyBlocks(Blocks * blocks);
-    void printBlocks(Blocks * blocks);
+    void gotoligcol(int, int);
+    Ball * createBall();
+    void moveBall(Ball * );
+    Blocks * createBlocks(int);
+    void initBlocks(Blocks * );
+    void distroyBlocks(Blocks * );
+    void printBlocks(Blocks * );
     
+    Snoopy * createSnoopy();
+    void initSnoopy(Snoopy * );
+
+    Birds * CreateBirds();
+    void printBirds(Birds * );
+    
+    void btnDetection(Grid);
     void positionSnoopy();
-    void startNewGame();
+    void startNewGame();    
 #endif

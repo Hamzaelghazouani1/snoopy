@@ -31,6 +31,7 @@ typedef struct {
 
 typedef struct {
     Object Object;
+    int direction;
 }Ball;
 
 typedef struct {
