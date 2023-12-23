@@ -21,7 +21,7 @@
     Birds * CreateBirds();
     void printBirds(Birds * );
     
-    void btnDetection(Grid);
+    void playGame(Grid);
     void positionSnoopy();
     void startNewGame();    
 #endif

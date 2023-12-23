@@ -45,25 +45,23 @@ typedef struct {
     int level;
     int time;
     int life;
+    int birds;
 }Param;
 
 typedef struct {
-    Snoopy Snoopy;
-    Ball Ball;
-    Blocks Blocks;
-}Items;
+    Snoopy* Snoopy;
+    Ball* Ball;
+    Blocks* Blocks;
+    Birds* Birds;
+}Game;
 
 typedef struct {
     char** Array;
     int row;
     int col;
     Param Param;
-    Items Items;
+    Game* Game;
 }Grid;
-
-typedef struct {
-    
-}Game;
 
 
 #endif

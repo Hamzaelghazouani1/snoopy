@@ -6,11 +6,11 @@
 void startNewGame(void) {
     Grid grid = createGrid();
     initGrid(grid);
-    Blocks * blocks = createBlocks(10);
-    initBlocks(blocks);
+    grid.Game->Blocks = createBlocks(10);
+    initBlocks(grid.Game->Blocks);
     printGrid(grid);
-    printBlocks(blocks);
-    Birds * birds = CreateBirds();
-    printBirds(birds);
-    btnDetection(grid);
+    printBlocks(grid.Game->Blocks);
+    grid.Game->Birds = CreateBirds();
+    printBirds(grid.Game->Birds);
+    playGame(grid);
 }
