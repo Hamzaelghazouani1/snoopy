@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <conio.h>
+#include <time.h>
 #include "../header/type.h"
 #include "../header/protolib.h"
 
@@ -74,10 +75,23 @@ void playGame(Grid grid){
     grid.Game->Ball = createBall();
     grid.Param.life = 6;
     grid.Param.birds = 0;
+    time_t timer = time(NULL);
+    srand(timer);
+    grid.Param.time = timer+120;
     initSnoopy(grid.Game->Snoopy);
     while (1) {
+        timer = time(NULL);
+        grid.Param.time--;
         int key;
         moveBall(grid.Game->Ball);
+        
+        gotoligcol(1,85);
+        printf("Life : %d",grid.Param.life);
+        gotoligcol(3,85);
+        printf("Birds : %d",grid.Param.birds/2);
+        gotoligcol(5,85);
+        printf("Time : %d",grid.Param.time);
+        
         key = getch();
         if (key == 72 && grid.Game->Snoopy->Object.Position.x > 2) {
             gotoligcol(grid.Game->Snoopy->Object.Position.x,grid.Game->Snoopy->Object.Position.y);
@@ -131,10 +145,11 @@ void playGame(Grid grid){
             grid.Game->Blocks->Array[9]->Position.y == grid.Game->Snoopy->Object.Position.y)
         ){
             grid.Param.life--;
-        }if (!grid.Param.life)
+        }if (!grid.Param.life || timer == grid.Param.time)
         {
             system("clear");
             printf("\n\n\033[1;31m\"   :(  Game Over !    \"\033[0m\n");
+            getch();
             getch();
             system("clear");
             break;
@@ -166,11 +181,10 @@ void playGame(Grid grid){
             system("clear");
             break;
         }
-        
         if (key == 113) {
             system("clear");
             break;
-        }
+        }   
         if (key == 115) {
             break;
         }
