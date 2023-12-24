@@ -90,25 +90,24 @@ void loadGame(Grid* grid) {
 
     fscanf(file, "%d", &grid->Game->Birds->Bird_1.Position.x);
     fscanf(file, "%d", &grid->Game->Birds->Bird_1.Position.y);
-    fscanf(file, "%c", &grid->Game->Birds->Bird_1.ship);
+    fscanf(file, " %c", &grid->Game->Birds->Bird_1.ship);
 
     fscanf(file, "%d", &grid->Game->Birds->Bird_2.Position.x);
     fscanf(file, "%d", &grid->Game->Birds->Bird_2.Position.y);
-    fscanf(file, "%c", &grid->Game->Birds->Bird_2.ship);
+    fscanf(file, " %c", &grid->Game->Birds->Bird_2.ship);
 
     fscanf(file, "%d", &grid->Game->Birds->Bird_3.Position.x);
     fscanf(file, "%d", &grid->Game->Birds->Bird_3.Position.y);
-    fscanf(file, "%c", &grid->Game->Birds->Bird_3.ship);
+    fscanf(file, " %c", &grid->Game->Birds->Bird_3.ship);
 
     fscanf(file, "%d", &grid->Game->Birds->Bird_4.Position.x);
     fscanf(file, "%d", &grid->Game->Birds->Bird_4.Position.y);
-    fscanf(file, "%c", &grid->Game->Birds->Bird_4.ship);
+    fscanf(file, " %c", &grid->Game->Birds->Bird_4.ship);
 
     fscanf(file, "%d", &grid->Param.birds);
     fscanf(file, "%d", &grid->Param.life);
     fscanf(file, "%d", &grid->Param.time);
     fscanf(file, "%d", &grid->Param.level);
-    printf("%d", grid->Param.time);
 
     fclose(file);
 }
