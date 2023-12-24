@@ -73,24 +73,25 @@ void distroyGrid(Grid grid){
 void playGame(Grid grid){
     grid.Game->Snoopy = createSnoopy();
     grid.Game->Ball = createBall();
-    grid.Param.life = 6;
+    grid.Param.life = 3;
     grid.Param.birds = 0;
-    time_t timer = time(NULL);
-    srand(timer);
-    grid.Param.time = timer+120;
+    grid.Param.time = 30;
+    time_t start = time(NULL);
+    srand(start);
+    time_t end = start + grid.Param.time;
     initSnoopy(grid.Game->Snoopy);
     while (1) {
-        timer = time(NULL);
-        grid.Param.time--;
+        start = time(NULL);
+        grid.Param.time = end - start;
         int key;
         moveBall(grid.Game->Ball);
         
-        gotoligcol(1,85);
-        printf("Life : %d",grid.Param.life);
-        gotoligcol(3,85);
-        printf("Birds : %d",grid.Param.birds/2);
-        gotoligcol(5,85);
-        printf("Time : %d",grid.Param.time);
+        gotoligcol(1,86);
+        printf("\033[1;36mLife : %d",grid.Param.life);
+        gotoligcol(3,86);
+        printf("Birds : %d",grid.Param.birds);
+        gotoligcol(5,86);
+        printf("Time : %d\033[0m",grid.Param.time);
         
         key = getch();
         if (key == 72 && grid.Game->Snoopy->Object.Position.x > 2) {
@@ -122,30 +123,60 @@ void playGame(Grid grid){
             printf("%c",0x01);
         }if (
             (grid.Game->Ball->Object.Position.x == grid.Game->Snoopy->Object.Position.x && 
-            grid.Game->Ball->Object.Position.y == grid.Game->Snoopy->Object.Position.y)||
-            (grid.Game->Blocks->Array[0]->Position.x == grid.Game->Snoopy->Object.Position.x&&
-            grid.Game->Blocks->Array[0]->Position.y == grid.Game->Snoopy->Object.Position.y)||
-            (grid.Game->Blocks->Array[1]->Position.x == grid.Game->Snoopy->Object.Position.x&&
-            grid.Game->Blocks->Array[1]->Position.y == grid.Game->Snoopy->Object.Position.y)||
-            (grid.Game->Blocks->Array[2]->Position.x == grid.Game->Snoopy->Object.Position.x&&
-            grid.Game->Blocks->Array[2]->Position.y == grid.Game->Snoopy->Object.Position.y)||
-            (grid.Game->Blocks->Array[3]->Position.x == grid.Game->Snoopy->Object.Position.x&&
-            grid.Game->Blocks->Array[3]->Position.y == grid.Game->Snoopy->Object.Position.y)||
-            (grid.Game->Blocks->Array[4]->Position.x == grid.Game->Snoopy->Object.Position.x&&
-            grid.Game->Blocks->Array[4]->Position.y == grid.Game->Snoopy->Object.Position.y)||
-            (grid.Game->Blocks->Array[5]->Position.x == grid.Game->Snoopy->Object.Position.x&&
-            grid.Game->Blocks->Array[5]->Position.y == grid.Game->Snoopy->Object.Position.y)||
-            (grid.Game->Blocks->Array[6]->Position.x == grid.Game->Snoopy->Object.Position.x&&
-            grid.Game->Blocks->Array[6]->Position.y == grid.Game->Snoopy->Object.Position.y)||
-            (grid.Game->Blocks->Array[7]->Position.x == grid.Game->Snoopy->Object.Position.x&&
-            grid.Game->Blocks->Array[7]->Position.y == grid.Game->Snoopy->Object.Position.y)||
-            (grid.Game->Blocks->Array[8]->Position.x == grid.Game->Snoopy->Object.Position.x&&
-            grid.Game->Blocks->Array[8]->Position.y == grid.Game->Snoopy->Object.Position.y)||
-            (grid.Game->Blocks->Array[9]->Position.x == grid.Game->Snoopy->Object.Position.x&&
-            grid.Game->Blocks->Array[9]->Position.y == grid.Game->Snoopy->Object.Position.y)
-        ){
+            grid.Game->Ball->Object.Position.y == grid.Game->Snoopy->Object.Position.y)){
             grid.Param.life--;
-        }if (!grid.Param.life || timer == grid.Param.time)
+        }if ((grid.Game->Blocks->Array[0]->Position.x == grid.Game->Snoopy->Object.Position.x&&
+            grid.Game->Blocks->Array[0]->Position.y == grid.Game->Snoopy->Object.Position.y)){
+            grid.Param.life--;
+            grid.Game->Blocks->Array[0]->Position.x = 0;
+            grid.Game->Blocks->Array[0]->Position.y = 0;
+        }if ((grid.Game->Blocks->Array[1]->Position.x == grid.Game->Snoopy->Object.Position.x&&
+            grid.Game->Blocks->Array[1]->Position.y == grid.Game->Snoopy->Object.Position.y)){
+            grid.Param.life--;
+            grid.Game->Blocks->Array[1]->Position.x = 0;
+            grid.Game->Blocks->Array[1]->Position.y = 0;
+        }if ((grid.Game->Blocks->Array[2]->Position.x == grid.Game->Snoopy->Object.Position.x&&
+            grid.Game->Blocks->Array[2]->Position.y == grid.Game->Snoopy->Object.Position.y)){
+            grid.Param.life--;
+            grid.Game->Blocks->Array[2]->Position.x = 0;
+            grid.Game->Blocks->Array[2]->Position.y = 0;
+        }if ((grid.Game->Blocks->Array[3]->Position.x == grid.Game->Snoopy->Object.Position.x&&
+            grid.Game->Blocks->Array[3]->Position.y == grid.Game->Snoopy->Object.Position.y)){
+            grid.Param.life--;
+            grid.Game->Blocks->Array[3]->Position.x = 0;
+            grid.Game->Blocks->Array[3]->Position.y = 0;
+        }if ((grid.Game->Blocks->Array[4]->Position.x == grid.Game->Snoopy->Object.Position.x&&
+            grid.Game->Blocks->Array[4]->Position.y == grid.Game->Snoopy->Object.Position.y)){
+            grid.Param.life--;
+            grid.Game->Blocks->Array[4]->Position.x = 0;
+            grid.Game->Blocks->Array[4]->Position.y = 0;
+        }if ((grid.Game->Blocks->Array[5]->Position.x == grid.Game->Snoopy->Object.Position.x&&
+            grid.Game->Blocks->Array[5]->Position.y == grid.Game->Snoopy->Object.Position.y)){
+            grid.Param.life--;
+            grid.Game->Blocks->Array[5]->Position.x = 0;
+            grid.Game->Blocks->Array[5]->Position.y = 0;
+        }if ((grid.Game->Blocks->Array[6]->Position.x == grid.Game->Snoopy->Object.Position.x&&
+            grid.Game->Blocks->Array[6]->Position.y == grid.Game->Snoopy->Object.Position.y)){
+            grid.Param.life--;
+            grid.Game->Blocks->Array[6]->Position.x = 0;
+            grid.Game->Blocks->Array[6]->Position.y = 0;
+        }if ((grid.Game->Blocks->Array[7]->Position.x == grid.Game->Snoopy->Object.Position.x&& 
+            grid.Game->Blocks->Array[7]->Position.y == grid.Game->Snoopy->Object.Position.y)){
+            grid.Param.life--;
+            grid.Game->Blocks->Array[7]->Position.x = 0;
+            grid.Game->Blocks->Array[7]->Position.y = 0;
+        }if ((grid.Game->Blocks->Array[8]->Position.x == grid.Game->Snoopy->Object.Position.x&&
+            grid.Game->Blocks->Array[8]->Position.y == grid.Game->Snoopy->Object.Position.y)){
+            grid.Param.life--;
+            grid.Game->Blocks->Array[8]->Position.x = 0;
+            grid.Game->Blocks->Array[8]->Position.y = 0;
+        }if ((grid.Game->Blocks->Array[9]->Position.x == grid.Game->Snoopy->Object.Position.x&& 
+            grid.Game->Blocks->Array[9]->Position.y == grid.Game->Snoopy->Object.Position.y)){
+            grid.Param.life--;
+            grid.Game->Blocks->Array[9]->Position.x = 0;
+            grid.Game->Blocks->Array[9]->Position.y = 0;    
+        }
+        if (!grid.Param.life || start == end)
         {
             system("clear");
             printf("\n\n\033[1;31m\"   :(  Game Over !    \"\033[0m\n");
