@@ -26,7 +26,7 @@ void initBlocks(Blocks* blocks) {
             blocks->Array[i]->Position.y = rand() % 80;
         } while (blocks->Array[i]->Position.y <= 2 || blocks->Array[i]->Position.y % 4 != 0);
         
-        blocks->Array[i]->ship = "0x0F";
+        blocks->Array[i]->ship = "X";
     }
 }
 

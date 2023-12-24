@@ -20,7 +20,7 @@ int run(void){
 			startNewGame();
 			break;
 		case 3:
-			printf("Fonction a implementer: Charger une partie\n");
+			resumeGame();
 			getchar();
 		    system("clear");
 			break;

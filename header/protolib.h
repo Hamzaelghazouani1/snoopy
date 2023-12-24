@@ -4,24 +4,29 @@
     int run();
     void menu();
     void displayGameRules();
-    Grid createGrid();
-    void initGrid(Grid);
-    void printGrid(Grid);
+    Grid* createGrid();
+    void initGrid(Grid*);
+    void printGrid(Grid*);
     void gotoligcol(int, int);
-    Ball * createBall();
-    void moveBall(Ball * );
-    Blocks * createBlocks(int);
-    void initBlocks(Blocks * );
-    void distroyBlocks(Blocks * );
-    void printBlocks(Blocks * );
+    Ball* createBall();
+    void moveBall(Ball* );
+    Blocks* createBlocks(int);
+    void initBlocks(Blocks* );
+    void distroyBlocks(Blocks* );
+    void printBlocks(Blocks* );
     
-    Snoopy * createSnoopy();
-    void initSnoopy(Snoopy * );
+    Snoopy* createSnoopy();
+    void initSnoopy(Snoopy* );
 
-    Birds * CreateBirds();
-    void printBirds(Birds * );
+    Birds* CreateBirds();
+    void printBirds(Birds*);
     
-    void playGame(Grid);
+    void playGame(Grid*);
+    void saveGame(Grid*);
+    
+    void resumeGame(void);
+    void loadGame(Grid*);
+
     void positionSnoopy();
     void startNewGame();    
 #endif
