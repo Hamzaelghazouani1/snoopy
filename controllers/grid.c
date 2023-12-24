@@ -75,12 +75,11 @@ void playGame(Grid * grid){
     srand(start);
     time_t end = start + grid->Param.time;
     initSnoopy(grid->Game->Snoopy);
+    int key;
     while (1) {
         start = time(NULL);
         grid->Param.time = end - start;
-        int key;
         moveBall(grid->Game->Ball);
-        
         gotoligcol(1,86);
         printf("\033[1;36mLife : %d",grid->Param.life);
         gotoligcol(3,86);
@@ -90,7 +89,7 @@ void playGame(Grid * grid){
         gotoligcol(7,86);
         printf("Level : %d\033[0m",grid->Param.level);
         
-        key = getch();
+        if(kbhit()) key = getch();
         if (key == 72 && grid->Game->Snoopy->Object.Position.x > 2) {
             gotoligcol(grid->Game->Snoopy->Object.Position.x,grid->Game->Snoopy->Object.Position.y);
             printf(" ");
@@ -235,6 +234,7 @@ void playGame(Grid * grid){
             printf("\n\n\033[1;33m\"   :) Game Saved !   \"\033[0m\n\n");
             break;
         }
-        Sleep(120);
+        key = 0;
+        Sleep(60);
     }
 }
