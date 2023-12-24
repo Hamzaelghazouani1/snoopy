@@ -9,7 +9,7 @@ int run(void){
 		menu();
 		printf("Entrer votre choix : ");
 		scanf("%d",&choice);
-		switch (choice)
+		switch ((int)choice)
 		{
 		case 1:
 			displayGameRules();
@@ -21,12 +21,18 @@ int run(void){
 			break;
 		case 3:
 			printf("Fonction a implementer: Charger une partie\n");
+			getchar();
+		    system("clear");
 			break;
 		case 4:
 			printf("Fonction a implementer: Lancer directement un niveau via son Mot de passe\n");
+		    getchar();
+		    system("clear");
 			break;
 		case 5:
 			printf("Fonction a implementer: Scores \n");
+		    getchar();
+		    system("clear");
 			break;
 		default:
 			break;

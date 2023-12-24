@@ -60,7 +60,7 @@ void gotoligcol( int lig, int col ){
 
 void positionSnoopy(){
     gotoligcol(1,4);
-    printf("%c",0x01);
+    printf("\033[1;36m%c\033[0m",0x01);
     getchar();
 }
 
@@ -99,28 +99,28 @@ void playGame(Grid grid){
             printf(" ");
             grid.Game->Snoopy->Object.Position.x-=2;
             gotoligcol(grid.Game->Snoopy->Object.Position.x,grid.Game->Snoopy->Object.Position.y);
-            printf("%c",0x01);
+            printf("\033[1;36m%c\033[0m",0x01);
         }
         if (key == 80 && grid.Game->Snoopy->Object.Position.x < 20) {
             gotoligcol(grid.Game->Snoopy->Object.Position.x,grid.Game->Snoopy->Object.Position.y);
             printf(" ");
             grid.Game->Snoopy->Object.Position.x+=2;
             gotoligcol(grid.Game->Snoopy->Object.Position.x,grid.Game->Snoopy->Object.Position.y);
-            printf("%c",0x01);
+            printf("\033[1;36m%c\033[0m",0x01);
         }
         if (key == 75 && grid.Game->Snoopy->Object.Position.y > 4) {
             gotoligcol(grid.Game->Snoopy->Object.Position.x,grid.Game->Snoopy->Object.Position.y);
             printf(" ");
             grid.Game->Snoopy->Object.Position.y -= 4;
             gotoligcol(grid.Game->Snoopy->Object.Position.x,grid.Game->Snoopy->Object.Position.y);
-            printf("%c",0x01);
+            printf("\033[1;36m%c\033[0m",0x01);
         }
         if (key == 77 && grid.Game->Snoopy->Object.Position.y < 80) {
             gotoligcol(grid.Game->Snoopy->Object.Position.x,grid.Game->Snoopy->Object.Position.y);
             printf(" ");
             grid.Game->Snoopy->Object.Position.y=grid.Game->Snoopy->Object.Position.y+4;
             gotoligcol(grid.Game->Snoopy->Object.Position.x,grid.Game->Snoopy->Object.Position.y);
-            printf("%c",0x01);
+            printf("\033[1;36m%c\033[0m",0x01);
         }if (
             (grid.Game->Ball->Object.Position.x == grid.Game->Snoopy->Object.Position.x && 
             grid.Game->Ball->Object.Position.y == grid.Game->Snoopy->Object.Position.y)){
@@ -179,9 +179,14 @@ void playGame(Grid grid){
         if (!grid.Param.life || start == end)
         {
             system("clear");
-            printf("\n\n\033[1;31m\"   :(  Game Over !    \"\033[0m\n");
-            getch();
-            getch();
+            printf("\n\n\033[1;31m\"   :(  Game Over !    \"\033[0m\n\n");
+            printf("\033[1;31m+---------------+\n");
+            printf("| Life : %d\t|\n",grid.Param.life);
+            printf("| Birds : %d\t|\n",grid.Param.birds);
+            printf("| Time : %d\t|\n",grid.Param.time);
+            printf("+---------------+\033[0m\n\n");
+            printf("--> [ move to menu press \033[1;33m\"Enter\"\033[0m ] <--\n\n");
+            while (getch() != 13);
             system("clear");
             break;
         }if (grid.Game->Snoopy->Object.Position.x == grid.Game->Birds->Bird_1.Position.x && 
@@ -206,9 +211,14 @@ void playGame(Grid grid){
             grid.Game->Birds->Bird_4.Position.y = 0;
         }if (grid.Param.birds == 4){
             system("clear");
-            printf("\n\n\033[1;33m\"   :) You Win !   \"\033[0m\n");
-            getch();
-            getch();
+            printf("\n\n\033[1;33m\"   :) You Win !   \"\033[0m\n\n");
+            printf("\033[1;36m+---------------+\n");
+            printf("| Life : %d\t|\n",grid.Param.life);
+            printf("| Birds : %d\t|\n",grid.Param.birds);
+            printf("| Time : %d\t|\n",grid.Param.time);
+            printf("+---------------+\033[0m\n\n");
+            printf("--> [ move to menu press \033[1;33m\"Enter\"\033[0m ] <--\n\n");
+            while (getch() != 13);
             system("clear");
             break;
         }

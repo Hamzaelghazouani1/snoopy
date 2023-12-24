@@ -14,7 +14,7 @@ Snoopy * createSnoopy(){
 
 void initSnoopy(Snoopy * snoopy){
     gotoligcol(snoopy->Object.Position.x,snoopy->Object.Position.y);
-    printf("%c",0x01);
+    printf("\033[1;36m%c\033[0m",0x01);
 }
 
 void moveSnoopy(Snoopy * snoopy){
