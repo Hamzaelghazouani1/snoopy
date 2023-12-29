@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include "../header/protolib.h"
 
+/**
+ * @brief Affiche le menu principal
+ * @return void
+ */
 void menu(void){
     printf("\033[1;32m                         [ Menu ]\n");
     printf("+-----------------------------------------------------------+\n");
@@ -14,7 +18,10 @@ void menu(void){
     printf("+-----------------------------------------------------------+\033[0m\n\n");
 }
 
-
+/**
+ * @brief Affiche les regles du jeu
+ * @return void
+ */
 void displayGameRules(void) {
     system("clear");
     printf("\033[1;32m                                             [ Bienvenue dans notre jeu! ]\033[0m\n");
@@ -35,8 +42,6 @@ void displayGameRules(void) {
 
     printf("\n\033[1;37mGestion des objets:\033[0m\n");
     printf("Un bloc poussable peut etre deplace une seule fois dans une direction precise, sans sortir du niveau.\n");
-    // printf("Un bloc cassable ne peut pas etre traverse et doit etre detruit avec une touche speciale.\n");
-    // printf("Un bloc piege vous tue instantanement si vous le touchez.\n");
 
     printf("\n\033[1;37mCondition de victoire ou de defaite:\033[0m\n");
     printf("Pour gagner, recuperez les 4 oiseaux du niveau. Si vous perdez toutes vos vies, c'est Game Over!\n");

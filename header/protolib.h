@@ -1,32 +1,44 @@
 #ifndef PROTOLIB_H
 #define PROTOLIB_H
+#include <stdio.h>
+#include <stdlib.h>
 #include "./type.h"
-    int run();
-    void menu();
-    void displayGameRules();
-    Grid* createGrid();
-    void initGrid(Grid*);
-    void printGrid(Grid*);
-    void gotoligcol(int, int);
-    Ball* createBall();
-    void moveBall(Ball* );
-    Blocks* createBlocks(int);
-    void initBlocks(Blocks* );
-    void distroyBlocks(Blocks* );
-    void printBlocks(Blocks* );
-    
-    Snoopy* createSnoopy();
-    void initSnoopy(Snoopy* );
 
-    Birds* CreateBirds();
-    void printBirds(Birds*);
+    int run(void);
+    void menu(void);
+
+    void displayGameRules(void);
     
-    void playGame(Grid*);
     void saveGame(Grid*);
-    
     void resumeGame(void);
     void loadGame(Grid*);
+    void startNewGame(void);
+    
+    void printWin(Grid*);
+    void printGameOver(Grid*);
+    void printSettings(Grid*);
+    void printGrid(Grid*);
+    void printBlocks(Blocks*);
+    void printBirds(Birds*);
 
-    void positionSnoopy();
-    void startNewGame();    
+    void downLife(Grid* grid);
+    void moveSnoopy(Grid*,int);
+    void playGame(Grid *);
+    void removeBird(Grid*);
+
+    Grid* createGrid(void);
+    void initGrid(Grid*);
+    void gotoligcol(int, int);
+
+    Ball* createBall(void);
+    void moveBall(Ball*);
+
+    Blocks* createBlocks(int);
+    void initBlocks(Blocks*);
+    void distroyBlocks(Blocks*);
+
+    Snoopy* createSnoopy(void);
+    void initSnoopy(Snoopy* );
+
+    Birds* createBirds(void);
 #endif

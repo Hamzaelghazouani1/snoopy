@@ -1,11 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <windows.h>
-#include <conio.h>
-#include "../header/type.h"
 #include "../header/protolib.h"
 
-Birds * CreateBirds(){
+/**
+ * @brief Creation des oiseaux
+ * 
+ * @return Birds* 
+ */
+Birds * createBirds(void){
     Birds * birds = (Birds*)malloc(sizeof(Birds));
     birds->Bird_1.Position.x = 2;
     birds->Bird_1.Position.y = 4;
@@ -22,13 +22,44 @@ Birds * CreateBirds(){
     return birds;
 }
 
-void printBirds(Birds * birds){
-    gotoligcol(birds->Bird_1.Position.x,birds->Bird_1.Position.y);
-    printf("\033[1;34m%c\033[0m",0xAF);
-    gotoligcol(birds->Bird_2.Position.x,birds->Bird_2.Position.y);
-    printf("\033[1;34m%c\033[0m",0xAF);
-    gotoligcol(birds->Bird_3.Position.x,birds->Bird_3.Position.y);
-    printf("\033[1;34m%c\033[0m",0xAF);
-    gotoligcol(birds->Bird_4.Position.x,birds->Bird_4.Position.y);
-    printf("\033[1;34m%c\033[0m",0xAF);
+/**
+ * @brief Comparaison de la position de Snoopy et des oiseaux
+ * 
+ * @param Grid* 
+ */
+void removeBird(Grid* grid){
+        if (grid->Game->Snoopy->Object.Position.x == grid->Game->Birds->Bird_1.Position.x && 
+            grid->Game->Snoopy->Object.Position.y == grid->Game->Birds->Bird_1.Position.y){
+            grid->Param.birds++;
+            grid->Game->Birds->Bird_4.ship = " ";
+            grid->Game->Birds->Bird_1.Position.x = 0;
+            grid->Game->Birds->Bird_1.Position.y = 0;
+        }if (grid->Game->Snoopy->Object.Position.x == grid->Game->Birds->Bird_2.Position.x &&
+            grid->Game->Snoopy->Object.Position.y == grid->Game->Birds->Bird_2.Position.y){
+            grid->Param.birds++;
+            grid->Game->Birds->Bird_4.ship = " ";
+            grid->Game->Birds->Bird_2.Position.x = 0;
+            grid->Game->Birds->Bird_2.Position.y = 0;
+        }if (grid->Game->Snoopy->Object.Position.x == grid->Game->Birds->Bird_3.Position.x &&
+            grid->Game->Snoopy->Object.Position.y == grid->Game->Birds->Bird_3.Position.y){
+            grid->Param.birds++;
+            grid->Game->Birds->Bird_4.ship = " ";
+            grid->Game->Birds->Bird_3.Position.x = 0;
+            grid->Game->Birds->Bird_3.Position.y = 0;
+        }if (grid->Game->Snoopy->Object.Position.x == grid->Game->Birds->Bird_4.Position.x &&
+            grid->Game->Snoopy->Object.Position.y == grid->Game->Birds->Bird_4.Position.y){
+            grid->Param.birds++;
+            grid->Game->Birds->Bird_4.ship = " ";
+            grid->Game->Birds->Bird_4.Position.x = 0;
+            grid->Game->Birds->Bird_4.Position.y = 0;
+        }
+}
+
+/**
+ * @brief Distuction des oiseaux
+ * 
+ * @param Birds* 
+ */
+void distroyBirds(Birds * birds){
+    free(birds);
 }

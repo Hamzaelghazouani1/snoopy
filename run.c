@@ -1,7 +1,10 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "./header/protolib.h"
 
+/**
+ * @brief Menu principal du jeu
+ * 
+ * @return int 
+ */
 int run(void){
 	int choice = 0;
     system("clear");
@@ -37,7 +40,7 @@ int run(void){
 		default:
 			break;
 		}
-	}while (choice);
+	}while ((int)choice);
 	system("clear");
 	return 0;
 }
