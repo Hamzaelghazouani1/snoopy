@@ -26,6 +26,7 @@ gcc *.c */*.c -o snoopy
 ```bash
 ./snoopy
 ```
+---
 
 ### Structure du Projet
 * src/ : Contient tous les fichiers source du jeu.
