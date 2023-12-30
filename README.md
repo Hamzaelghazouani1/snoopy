@@ -12,7 +12,7 @@ Le jeu propose une série de niveaux de difficulté croissante avec de nouveaux 
 * Fonctionnalités spéciales comme la pause, la sauvegarde et le chargement de parties.
 * Installation
 * Clonez le référentiel sur votre machine locale.
-
+---
 1. Clonez le référentiel sur votre machine locale.
 ```bash
 git clone https://github.com/votre-utilisateur/snoopys-challenge.git
