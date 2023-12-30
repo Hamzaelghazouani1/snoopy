@@ -1,4 +1,4 @@
-## Bienvenue dans Snoopy, un jeu de console 2D développé en langage C !
+## Bienvenue dans Snoopy, un jeu de console 2D développé en langage C
 
 Snoopy est un jeu inspiré du célèbre chien Snoopy.
 L'objectif est de récupérer quatre oiseaux situés aux quatre coins du niveau dans un temps imparti tout en évitant les obstacles et les pièges. 
@@ -10,14 +10,14 @@ Le jeu propose une série de niveaux de difficulté croissante avec de nouveaux 
 * Différents types de blocs avec des comportements variés.
 * Ennemis tels que des balles rebondissantes et un Snoopy malveillant.
 * Fonctionnalités spéciales comme la pause, la sauvegarde et le chargement de parties.
-* Installation
-* Clonez le référentiel sur votre machine locale.
+  
 ---
-1. Clonez le référentiel sur votre machine locale.
+
+1. Clonez le référentiel sur votre machine locale:
 ```bash
-git clone https://github.com/votre-utilisateur/snoopys-challenge.git
+git clone https://github.com/Hamzaelghazouani1/snoopy.git
 ```
-2. Compilez le code source.
+2. Compilez le code source:
 ```bash
 gcc *.c */*.c -o snoopy
 ```
@@ -26,6 +26,7 @@ gcc *.c */*.c -o snoopy
 ```bash
 ./snoopy
 ```
+
 ---
 
 ### Structure du Projet
