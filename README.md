@@ -1,4 +1,4 @@
-## Bienvenue dans Snoopy's Challenge, un jeu de console 2D développé en langage C !
+## Bienvenue dans Snoopy, un jeu de console 2D développé en langage C !
 
 Snoopy est un jeu inspiré du célèbre chien Snoopy.
 L'objectif est de récupérer quatre oiseaux situés aux quatre coins du niveau dans un temps imparti tout en évitant les obstacles et les pièges. 
